@@ -22,10 +22,7 @@ jobs:
     
     - name: Execute SQLite3
       run: |
-        curl -O -L https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.2/MinGit-2.32.0.2-busybox-64-bit.zip
-        unzip -q MinGit-2.32.0.2-busybox-64-bit.zip
-        export PATH=$PATH:$(pwd)/cmd
-        cmd /c "bin/sqlite3.exe universe.db < src/main/resources/migrations/2023_02_20_000000_create_tables.sql"
+        curl universe.db < src/main/resources/migrations/2023_02_20_000000_create_tables.sql"
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
