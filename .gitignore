@@ -3,3 +3,5 @@
 /.idea/
 universe.db
 universe.iml
+/src/test/java/com.fluffy.universe/controllers/
+
