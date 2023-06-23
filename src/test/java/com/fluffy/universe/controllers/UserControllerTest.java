@@ -53,7 +53,7 @@ class UserControllerTest {
         Mockito.inOrder(mockContext).verify(mockContext, VerificationModeFactory.calls(2)).sessionAttribute(Mockito.anyString());
         verify(mockContext).redirect("/account");
          */
-        assertEquals(1,1);
+        assertEquals(0,1);
 
     }
 }
