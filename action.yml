@@ -22,7 +22,7 @@ inputs:
     default: ${{ github.token }}
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'src/main/java/com/fluffy/universe/Main.java'
 branding:
   icon: umbrella
   color: purple
