@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 class UserControllerTest {
     @Test
     public void updateAccountTest(){
-        /*Configuration.load(new File("application.properties"));
+        Configuration.load(new File("application.properties"));
         ServerData serverData = new ServerData();
 
         Javalin app = Mockito.mock(Javalin.class);
@@ -52,8 +52,5 @@ class UserControllerTest {
         Mockito.inOrder(mockContext).verify(mockContext, VerificationModeFactory.calls(8)).formParam(Mockito.anyString());
         Mockito.inOrder(mockContext).verify(mockContext, VerificationModeFactory.calls(2)).sessionAttribute(Mockito.anyString());
         verify(mockContext).redirect("/account");
-         */
-        assertEquals(0,1);
-
     }
 }
