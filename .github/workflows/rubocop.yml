@@ -1,15 +1,27 @@
-# .github/workflows/rubocop.yml
-
-name: Rubocop
+name: Java CI SpotBugs
 
 on: [push]
 
 jobs:
   build:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Rubocop Linter Action
-      uses: andrewmcodes/rubocop-linter-action@v3.0.0.rc2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Set up JDK 19
+      uses: actions/setup-java@v1
+      with:
+        java-version: 19
+    - uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    - name: Build with Maven
+      run: mvn -B verify spotbugs:spotbugs
+    - uses: jwgmeligmeyling/spotbugs-github-action@master
+      with:
+        path: '**/spotbugsXml.xml'
+    - name: Test output
+      run: echo $(cat /home/runner/work/universe/universe/target/spotbugsXml.xml)
