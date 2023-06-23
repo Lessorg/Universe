@@ -22,4 +22,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Chek stile
+      run: mvn site
    
